@@ -10,7 +10,19 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+                        <div class="form-group row">
+                            <label for="sid" class="col-md-4 col-form-label text-md-right">{{ __('Sid') }}</label>
 
+                            <div class="col-md-6">
+                                <input id="sid" type="text" class="form-control{{ $errors->has('sid') ? ' is-invalid' : '' }}" name="sid" value="{{ old('sid') }}" required autofocus>
+
+                                @if ($errors->has('sid'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('sid') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
