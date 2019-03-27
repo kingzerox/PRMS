@@ -9,17 +9,26 @@ use App\Handlers\ImageUploadHandler;
 
 class UsersController extends Controller
 {
+    //限制游客
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['show']]);
+    }
+    //用户资料
     public function show(User $user)
     {
         return view('users.show', compact('user'));
     }
-
+    //修改资料
     public function edit(User $user)
     {
+        $this->authorize('update', $user);
         return view('users.edit', compact('user'));
     }
+    //资料更新
     public function update(UserRequest $request, ImageUploadHandler $uploader, User $user)
     {
+        $this->authorize('update', $user);
         $data = $request->all();
 
         if ($request->avatar) {
