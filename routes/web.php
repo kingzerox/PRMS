@@ -38,3 +38,5 @@ Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit'
 
 //无权限提醒
 Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
+
+Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
