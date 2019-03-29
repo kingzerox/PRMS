@@ -11,10 +11,7 @@
         {{ $category->name }} ：{{ $category->description }}
       </div>
     @endif
-
     <div class="card ">
-
-      <div class="card ">
       <div class="card-header bg-transparent">
         <ul class="nav nav-pills">
           <li class="nav-item">
@@ -40,10 +37,11 @@
       </div>
     </div>
   </div>
-
-  <div class="col-lg-3 col-md-3 sidebar">
-    @include('topics._sidebar')
-  </div>
+    @can('manage_contents')
+        <div class="col-lg-3 col-md-3 sidebar">
+            @include('topics._sidebar')
+        </div>
+    @endcan
 </div>
 
 @endsection
