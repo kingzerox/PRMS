@@ -10,6 +10,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>@yield('title', 'PRMS') - 物理资源在线管理系统</title>
+  <meta name="description" content="@yield('description', '物理资源在线管理系统')" />
 
   <!-- Styles -->
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
