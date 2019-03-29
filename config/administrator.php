@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 return array(
 
@@ -61,6 +61,8 @@ return array(
     'menu' => [
         '用户与权限' => [
             'users',
+            'roles',
+            'permissions',
         ],
     ],
 
@@ -115,7 +117,8 @@ return array(
      *
      * @type string
      */
-    'logout_path' => false,
+    // 当选项 `permission` 权限检测不通过时，会重定向用户到此处设置的路径
+    'login_path' => 'permission-denied',
 
     /*
      * This is the key of the return path that is sent with the redirection to your login_action. Session::get('redirect') will hold the return URL.

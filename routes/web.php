@@ -35,3 +35,6 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 
 //用户主页相关路由
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
+
+//无权限提醒
+Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
