@@ -15,9 +15,4 @@ class Policy
             return true;
         }
     }
-
-    public function update(User $user, Topic $topic)
-    {
-        return $topic->user_id == $user->id;
-    }
 }
