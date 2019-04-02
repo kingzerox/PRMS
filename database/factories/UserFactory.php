@@ -24,6 +24,6 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
         'created_at' => now(),
         'updated_at' => now(),
-        'avatar' => $faker->name,
+        'avatar' => 'http://prms.test/logo.ico',
     ];
 });

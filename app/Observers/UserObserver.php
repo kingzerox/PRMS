@@ -18,4 +18,12 @@ class UserObserver
     {
         //
     }
+
+    public function saving(User $user)
+    {
+        // 只有空的时候才指定默认头像
+        if (empty($user->avatar)) {
+            $user->avatar = 'http://prms.test/logo.ico';
+        }
+    }
 }

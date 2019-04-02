@@ -6,11 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- CSRF Token -->
+<!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>@yield('title', 'PRMS') - 物理资源在线管理系统</title>
-  <meta name="description" content="@yield('description', '物理资源在线管理系统')" />
+  <title>@yield('title', 'PRMS') - {{ setting('site_name', '物理资源管理系统') }}</title>
+  <meta name="description" content="@yield('description', setting('seo_description', 'PRMS 物理资源管理系统。'))" />
+  <meta name="keyword" content="@yield('keyword', setting('seo_keyword', 'PRMS 物理资源管理系统'))" />
 
   <!-- Styles -->
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
