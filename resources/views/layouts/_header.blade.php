@@ -11,7 +11,21 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Left Side Of Navbar -->
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item {{ active_class(if_route('topics.index')) }}"><a class="nav-link" href="{{ route('topics.index') }}">公告</a></li>
+        <li class="nav-item {{ active_class(if_route('topics.index')) }}"><a class="nav-link" href="{{ route('topics.index') }}">公告</a>
+        </li>
+        <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             设备
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('devices.index') }}"><i class="mr-1"></i>全部设备</a>
+              <a class="dropdown-item" href="{{ route('statuses.show', 1) }}"><i class="mr-1"></i>空闲</a>
+              <a class="dropdown-item" href="{{ route('statuses.show', 2) }}"><i class="mr-1"></i>审核中</a>
+              <a class="dropdown-item" href="{{ route('statuses.show', 3) }}"><i class="mr-1"></i>使用中</a>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('search.index') }}">搜索</a>
+        </li>
       </ul>
 
       <!-- Right Side Of Navbar -->

@@ -13,7 +13,7 @@ $factory->define(App\Models\Device::class, function (Faker $faker) {
 
     return [
         'title' => $sentence,
-        'body' => $faker->text(),
+        'description' => $faker->text(),
         'created_at' => $created_at,
         'updated_at' => $updated_at,
     ];

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use App\Models\Device;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,7 +16,7 @@ class DevicesController extends Controller
 
 	public function index()
 	{
-		$devices = Device::paginate();
+		$devices = Device::with('user', 'devcategory','status')->paginate(30);
 		return view('devices.index', compact('devices'));
 	}
 
@@ -57,4 +57,6 @@ class DevicesController extends Controller
 
 		return redirect()->route('devices.index')->with('message', 'Deleted successfully.');
 	}
+
+
 }
