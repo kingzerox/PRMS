@@ -44,6 +44,7 @@ Route::get('topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 //上传图片
 Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
+Route::post('upload_image', 'DevicesController@uploadImage')->name('devices.upload_image');
 //回复
 Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
 //消息通知
@@ -57,3 +58,5 @@ Route::resource('statuses', 'StatusesController', ['only' => ['show']]);
 //状态列表
 Route::get('search/index', 'SearchDevController@index')->name('search.index');
 Route::post('search/show', 'SearchDevController@show')->name('search.show');
+
+Route::resource('applies', 'AppliesController', ['only' => ['store', 'update']]);

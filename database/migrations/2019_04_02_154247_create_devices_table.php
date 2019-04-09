@@ -13,7 +13,7 @@ class CreateDevicesTable extends Migration
             $table->text('description');
             $table->integer('dev_category_id')->unsigned()->index();
             $table->integer('last_user_id')->unsigned()->default(0);
-            $table->integer('status_id')->unsigned()->index();
+            $table->integer('status_id')->unsigned()->index()->default(1);
             $table->timestamps();
         });
 	}

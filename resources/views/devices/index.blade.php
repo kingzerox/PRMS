@@ -3,7 +3,6 @@
 @section('title', isset($devcategory) ? $devcategory->name : '设备列表')
 
 @section('content')
-
 <div class="row mb-5">
   <div class="col-lg-9 col-md-9 topic-list">
     @if (isset($devcategory))

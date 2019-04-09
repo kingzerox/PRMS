@@ -16944,7 +16944,11 @@ body {
 }
 
 .topics-index-page .topic-list .nav > li > a,
-.categories-show-page .topic-list .nav > li > a {
+.devices-index-page .topic-list .nav > li > a,
+.categories-show-page .topic-list .nav > li > a,
+.search-show-page .topic-list .nav > li > a,
+.devcategories-show-page .topic-list .nav > li > a,
+.root-page .topic-list .nav > li > a {
   position: relative;
   display: block;
   padding: 5px 14px;
@@ -16952,28 +16956,48 @@ body {
 }
 
 .topics-index-page .topic-list a,
-.categories-show-page .topic-list a {
+.devices-index-page .topic-list a,
+.categories-show-page .topic-list a,
+.search-show-page .topic-list a,
+.devcategories-show-page .topic-list a,
+.root-page .topic-list a {
   color: #444444;
 }
 
 .topics-index-page .topic-list .meta,
-.categories-show-page .topic-list .meta {
+.devices-index-page .topic-list .meta,
+.categories-show-page .topic-list .meta,
+.search-show-page .topic-list .meta,
+.devcategories-show-page .topic-list .meta,
+.root-page .topic-list .meta {
   font-size: 0.9em;
   color: #b3b3b3;
 }
 
 .topics-index-page .topic-list .meta a,
-.categories-show-page .topic-list .meta a {
+.devices-index-page .topic-list .meta a,
+.categories-show-page .topic-list .meta a,
+.search-show-page .topic-list .meta a,
+.devcategories-show-page .topic-list .meta a,
+.root-page .topic-list .meta a {
   color: #b3b3b3;
 }
 
 .topics-index-page .topic-list .badge,
-.categories-show-page .topic-list .badge {
+.devices-index-page .topic-list .badge,
+.categories-show-page .topic-list .badge,
+.search-show-page .topic-list .badge,
+.devcategories-show-page .topic-list .badge,
+.root-page .topic-list .badge {
   background-color: #d8d8d8;
 }
 
 .topics-index-page .topic-list hr,
-.categories-show-page .topic-list hr {
+.devices-index-page .topic-list hr,
+.categories-show-page .topic-list hr,
+.search-show-page .topic-list hr,
+.devcategories-show-page .topic-list hr,
+.root-page .topic-list hr {
   margin-top: 12px;
   margin-bottom: 12px;
   border: 0;
@@ -16989,6 +17013,16 @@ body {
 }
 
 .topics-show-page .card h1 {
+  margin: 0.4em auto 0.6em;
+  font-size: 28px;
+  line-height: 38px;
+}
+
+.devices-show-page .card {
+  padding: 15px;
+}
+
+.devices-show-page .card h1 {
   margin: 0.4em auto 0.6em;
   font-size: 28px;
   line-height: 38px;

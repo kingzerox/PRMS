@@ -25,14 +25,11 @@
                 <hr>
               @endif
             @endforeach
+            <hr>
           </ul>
         @else
           <div class="empty-block">暂无数据 </div>
         @endif
-        {{-- 分页 --}}
-        <div class="mt-5">
-          {!! $devices->appends(Request::except('page'))->render() !!}
-        </div>
       </div>
     </div>
   </div>

@@ -18,4 +18,9 @@ class DeviceObserver
     {
         //
     }
+    public function saving(Device $device)
+    {
+        // XSS 过滤
+        $device->description = clean($device->description, 'user_topic_body');
+    }
 }
