@@ -2,19 +2,24 @@
 
 namespace App\Policies;
 
-use App\Models\User;
 use App\Models\Apply;
+use App\Models\User;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ApplyPolicy extends Policy
 {
-    public function update(User $user, Apply $apply)
+    use HandlesAuthorization;
+    public function update(User $user,Apply $apply)
     {
-        // return $apply->user_id == $user->id;
-        return true;
+        if ($user->hasAnyRole(Role::all())) {
+            return true;
+        }
     }
 
-    public function destroy(User $user, Apply $apply)
+    public function view(User $user)
     {
-        return true;
+        if ($user->hasAnyRole(Role::all())) {
+            return true;
+        }
     }
 }

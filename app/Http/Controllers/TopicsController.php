@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TopicRequest;
 use App\Handlers\ImageUploadHandler;
+use Illuminate\Support\Facades\DB;
 
 class TopicsController extends Controller
 {
@@ -42,6 +43,7 @@ class TopicsController extends Controller
     {
         $topic->fill($request->all());
         $topic->user_id = Auth::id();
+        $categories=DB::table('categories')->where('id', $topic->category_id)->increment('post_count', 1);
         $topic->save();
         return redirect()->to($topic->link())->with('success', '成功创建公告！');
     }
@@ -64,6 +66,7 @@ class TopicsController extends Controller
 	public function destroy(Topic $topic)
     {
         $this->authorize('destroy', $topic);
+        $categories=DB::table('categories')->where('id', $topic->category_id)->decrement('post_count', 1);
         $topic->delete();
 
         return redirect()->route('topics.index')->with('success', '成功删除！');

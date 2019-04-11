@@ -21,7 +21,7 @@
           <div class="topic-body mt-4 mb-4">
             {!! $device->description !!}
           </div>
-          @can('manage_contents')
+        @can('manage_contents')
             <div class="operate">
               <hr>
               <a href="{{ route('devices.edit', $device->id) }}" class="btn btn-outline-secondary btn-sm" role="button">
@@ -37,12 +37,17 @@
                 </button>
               </form>
             </div>
+
           @endcan
           @if($device->status_id==1)
           <hr>
-              <a href="{{ route('applies.store', $device->id) }}" class="btn btn-outline-secondary btn-sm" role="button">
-                <i class="far fa-edit"></i> 申请使用
-              </a>
+            <form action="{{ route('applies.save') }}" method="post">
+                {{ csrf_field() }}
+                <input type="hidden" name="device_id" value="{{ $device->id }}">
+                <button type="submit" class="btn btn-outline-secondary btn-sm">
+                  <i class="far fa-edit"></i> 申请设备
+                </button>
+            </form>
          @endif
         </div>
       </div>

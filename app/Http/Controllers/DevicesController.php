@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DeviceRequest;
 use App\Handlers\ImageUploadHandler;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class DevicesController extends Controller
@@ -37,6 +38,7 @@ class DevicesController extends Controller
 	public function store(DeviceRequest $request,Device $device)
 	{
 		$device->fill($request->all());
+        $status=DB::table('dev_categories')->where('id', $device->dev_category_id)->increment('dev_count', 1);
         $device->save();
 		return redirect()->route('devices.show', $device->id)->with('message', '添加成功');
 	}
@@ -59,6 +61,7 @@ class DevicesController extends Controller
 	public function destroy(Device $device)
 	{
 		$this->authorize('destroy', $device);
+        $status=DB::table('dev_categories')->where('id', $device->dev_category_id)->decrement('dev_count', 1);
 		$device->delete();
 
 		return redirect()->route('devices.index')->with('message', '删除成功');

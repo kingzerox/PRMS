@@ -25,13 +25,13 @@
       </div>
     </div>
     <hr>
-    {{-- 用户发布的内容 --}}
+    {{-- 用户内容 --}}
     <div class="card ">
       <div class="card-body">
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link bg-transparent {{ active_class(if_query('tab', null)) }}" href="{{ route('users.show', $user->id) }}">
-              Ta 的话题
+            <a class="nav-link bg-transparent {{ active_class(if_query('tab', 'null')) }}" href="{{ route('users.show', $user->id) }}">
+              申请记录
             </a>
           </li>
           <li class="nav-item">
@@ -42,6 +42,8 @@
         </ul>
         @if (if_query('tab', 'replies'))
           @include('users._replies', ['replies' => $user->replies()->with('topic')->recent()->paginate(5)])
+        @else
+          @include('users._applies', ['applies' => $user->applies()->with('device','appstatus')->recent()->paginate(5)])
         @endif
       </div>
     </div>

@@ -26,6 +26,10 @@
           </li>
           <li class="nav-item"><a class="nav-link" href="{{ route('search.index') }}">搜索</a>
         </li>
+        @can('manage_contents')
+        <li class="nav-item"><a class="nav-link" href="{{ route('applies.index') }}">审核</a>
+        </li>
+        @endcan
       </ul>
 
       <!-- Right Side Of Navbar -->
