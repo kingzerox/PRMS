@@ -17,9 +17,13 @@ class SeedAppStatusesData extends Migration
                 'name'        => '同意申请',
                 'description' => '管理员同意申请',
             ],
-                        [
+            [
                 'name'        => '拒绝申请',
                 'description' => '管理员拒绝申请',
+            ],
+            [
+                'name'        => '设备归还',
+                'description' => '设备归还',
             ],
         ];
 

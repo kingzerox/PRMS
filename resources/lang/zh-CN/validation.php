@@ -144,6 +144,7 @@ return [
     */
 
     'attributes' => [
+        'sid'                   => '学号',
         'name'                  => '名称',
         'username'              => '用户名',
         'email'                 => '邮箱',

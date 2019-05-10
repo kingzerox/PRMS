@@ -10,11 +10,15 @@
       <div class="card">
         <div class="card-body">
           <h1 class="text-center mt-3 mb-3">
-                        {{ $device->title }}
+            {{ $device->title }}
           </h1>
 
           <div class="article-meta text-center text-secondary">
-            {{ $device->created_at->diffForHumans() }}
+            {{ $device->devcategory->name }}
+            ⋅
+            {{ $device->status->name }}
+            ⋅
+            添加时间:{{ $device->created_at->diffForHumans() }}
             ⋅
           </div>
 
@@ -39,7 +43,7 @@
             </div>
 
           @endcan
-          @if($device->status_id==1)
+          @if($device->status_id==1 && !empty(Auth::id()))
           <hr>
             <form action="{{ route('applies.save') }}" method="post">
                 {{ csrf_field() }}

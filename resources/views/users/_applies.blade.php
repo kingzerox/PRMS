@@ -14,6 +14,20 @@
         <div class="text-secondary" style="font-size:0.9em;">
           <i class="far fa-clock"></i> 申请于 {{ $apply->created_at->diffForHumans() }}
         </div>
+        @if($apply->app_status_id==2 && $apply->user_id==(Auth::id()))
+         <form action="{{ route('applies.return') }}" name="data" method="POST" accept-charset="UTF-8">
+                {{ csrf_field() }}
+                <input type="hidden" name="id" value="{{$apply->id}}">
+                <input type="hidden" name="dev_id" value="{{ $apply->device->id }}">
+                <button class="btn btn-default pull-right" type="submit">设备归还</button>
+        </form>
+        <form action="#" name="data" method="POST" accept-charset="UTF-8">
+                {{ csrf_field() }}
+                <input type="hidden" name="id" value="{{$apply->id}}">
+                <input type="hidden" name="dev_id" value="{{ $apply->device->id }}">
+                <button class="btn btn-default pull-right" type="submit">设备使用</button>
+        </form>
+        @endif
       </li>
     @endforeach
   </ul>

@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 return array(
 
@@ -68,6 +68,11 @@ return array(
             'categories',
             'topics',
             'replies',
+            'devices',
+            'devcategories',
+            'status',
+            'applies',
+            'appstatus',
         ],
         '站点管理' => [
             'settings.site',

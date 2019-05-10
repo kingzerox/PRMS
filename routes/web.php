@@ -35,6 +35,8 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 
 //用户主页相关路由
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
+Route::get('userreset', 'UsersController@showreset')->name('users.request');
+Route::post('userreset', 'UsersController@reset')->name('users.reset');
 
 //无权限提醒
 Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
@@ -62,3 +64,4 @@ Route::post('search/show', 'SearchDevController@show')->name('search.show');
 Route::post('applysave', 'AppliesController@save')->name('applies.save');
 Route::resource('applies', 'AppliesController', ['only' => ['index']]);
 Route::post('applyconfirm', 'AppliesController@confirm')->name('applies.confirm');
+Route::post('applyreturn', 'AppliesController@return')->name('applies.return');

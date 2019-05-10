@@ -43,13 +43,26 @@ class AppliesController extends Controller
 	{
 		$id=(int)\Request::get('id');
         $app_status_id=(int)\Request::get('type');
+        $dev_id=(int)\Request::get('dev_id');
         if($app_status_id==2){
             DB::table('applies')->where('id',$id)->update(['app_status_id'=>2]);
+            DB::table('devices')->where('id', $dev_id)->update(['status_id' => 3]);
             session()->flash('success', '审核通过');
             return redirect()->route('applies.index');
         }
         DB::table('applies')->where('id',$id)->update(['app_status_id'=>3]);
+        DB::table('devices')->where('id', $dev_id)->update(['status_id' => 1]);
 		session()->flash('warning', '审核拒绝');
         return redirect()->route('applies.index');
 	}
+
+    public function return(Request $request)
+    {
+        $id=(int)\Request::get('id');
+        $dev_id=(int)\Request::get('dev_id');
+        DB::table('applies')->where('id',$id)->update(['app_status_id'=>4]);
+        DB::table('devices')->where('id', $dev_id)->update(['status_id' => 1]);
+        session()->flash('success', '归还成功');
+        return redirect()->route('users.show', Auth::id());
+    }
 }

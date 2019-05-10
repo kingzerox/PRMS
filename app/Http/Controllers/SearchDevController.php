@@ -30,10 +30,10 @@ class SearchDevController extends Controller
         if (!empty($device_name)) {
             $query->where('title','like','%'.$device_name.'%');
         }
-        if (!empty($status_id)) {
+        if ($status_id >0) {
             $query->where('status_id',$status_id);
         }
-        if (!empty($devCategory_id)) {
+        if ($devCategory_id >0) {
             $query->where('dev_category_id',$devCategory_id);
         }
         $devices=$query->get();

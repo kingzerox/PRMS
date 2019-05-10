@@ -26,12 +26,14 @@
             <form action="{{ route('applies.confirm')}}" name="data" method="POST" accept-charset="UTF-8">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{$apply->id}}">
+                <input type="hidden" name="dev_id" value="{{$apply->device->id}}">
                 <input type="hidden" name="type" value="3">
                 <button class="btn btn-default pull-right" type="submit">拒绝</button>
             </form>
             <form action="{{ route('applies.confirm')}}" name="data" method="POST" accept-charset="UTF-8">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{$apply->id}}">
+                <input type="hidden" name="dev_id" value="{{$apply->device->id}}">
                 <input type="hidden" name="type" value="2">
                 <button class="btn btn-default pull-right" type="submit">同意</button>
             </form>

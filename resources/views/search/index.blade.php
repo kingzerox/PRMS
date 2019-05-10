@@ -9,13 +9,13 @@
       <form action="{{ route('search.show')}}" name="data" method="POST" accept-charset="UTF-8">
         {{ csrf_field() }}
         <select class="form-control col-lg-2 pull-left" name="devCategory_id">
-          <option>==设备类型==</option>
+          <option value="0">==设备类型==</option>
                    @foreach ($devcategory as $d)
           <option value="{{$d->id}}">{{$d->name}}</option>
                    @endforeach
         </select>
         <select class="form-control col-lg-2 " name="status_id">
-        <option>==设备状态==</option>
+        <option value="0">==设备状态==</option>
                    @foreach ($status as $s)
           <option value="{{$s->id}}">{{$s->name}}</option>
                    @endforeach

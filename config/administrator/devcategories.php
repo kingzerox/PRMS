@@ -1,11 +1,11 @@
 <?php
 
-use App\Models\Category;
+use App\Models\DevCategory;
 
 return [
-    'title'   => '分类',
-    'single'  => '分类',
-    'model'   => Category::class,
+    'title'   => '设备分类',
+    'single'  => '设备分类',
+    'model'   => DevCategory::class,
 
     // 对 CRUD 动作的单独权限控制，其他动作不指定默认为通过
     'action_permissions' => [
@@ -54,7 +54,7 @@ return [
         ],
     ],
     'rules'   => [
-        'name' => 'required|min:1|unique:categories'
+        'name' => 'required|min:1|unique:dev_categories'
     ],
     'messages' => [
         'name.unique'   => '分类名在数据库里有重复，请选用其他名称。',
